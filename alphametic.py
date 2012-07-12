@@ -18,11 +18,10 @@ def solve(puzzle):
     invalid = re.compile('(\D|^)0\d*')
     for guess in itertools.permutations(digits, len(unique_chars)):
         equation = puzzle.translate(dict(zip(chars, guess)))
+        print(equation, end='\r')
         if not invalid.search(equation):
             if eval(equation, {}, {}):
                 print(equation)
-            else:
-                print(equation, end='\r')
 
 
 if __name__ == '__main__':
@@ -34,3 +33,4 @@ if __name__ == '__main__':
     puzzle = sys.argv[1].upper()
     print(puzzle)
     solve(puzzle)
+    print(puzzle)
