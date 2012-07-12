@@ -31,6 +31,7 @@ if __name__ == '__main__':
         exit()
 
     puzzle = sys.argv[1].upper()
-    print(puzzle)
+    print('\n' + puzzle)
+    print('-' * len(puzzle))
     solve(puzzle)
-    print(puzzle)
+    print('-' * len(puzzle) + '\n')
