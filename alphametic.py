@@ -5,12 +5,17 @@ import itertools
 def solve(puzzle):
     ''' Solving puzzles like "A + B == C" or "2 * 3 == 6" '''
 
+    print('\n' + puzzle)
+    print('-' * len(puzzle))
+
     words = re.findall('[A-Z]+', puzzle)
     if not words:
         words = re.findall('\d+', puzzle)
 
     unique_chars = set(''.join(words))
-    assert len(unique_chars) <= 10, 'Cannot handle more than 10 letters!'
+    if len(unique_chars) > 10:
+        print('Cannot handle more than 10 letters!\n')
+        return
 
     chars = tuple(ord(c) for c in unique_chars)
     digits = tuple(ord(d) for d in '0123456789')
@@ -23,6 +28,8 @@ def solve(puzzle):
             if eval(equation, {}, {}):
                 print(equation)
 
+    print('-' * len(puzzle) + '\n')
+
 
 if __name__ == '__main__':
     import sys
@@ -31,7 +38,4 @@ if __name__ == '__main__':
         exit()
 
     puzzle = sys.argv[1].upper()
-    print('\n' + puzzle)
-    print('-' * len(puzzle))
     solve(puzzle)
-    print('-' * len(puzzle) + '\n')
