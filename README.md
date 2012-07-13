@@ -33,7 +33,7 @@ Eventually, those codes just want to make sure the leading digit for each word i
 
 Would regular expression slow down the code significantly?  cProfile answered no.
 
-![profile](https://github.com/sun-li/alphametic/blob/master/profile.png)
+![profile](https://github.com/sun-li/alphametic/raw/master/profile.png)
 
 Surprisingly, the bottle neck actually is `eval()` who accounts 60% time.  And `translate()` also accounts for 8%.  `re.search()` only accounts for 10%.
 
