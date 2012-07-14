@@ -1,4 +1,6 @@
-# Cooler Alphametic Solver - A Humble Comment for "Dive Into Python 3"
+# An Even Cooler Alphametic Solver
+
+## Humble Comments for "Dive Into Python 3"
 
 "Dive Into Python 3" is a fantastic book.  For instance, chapter 8 "Advanced Iterators" introduces a cool alphametic puzzle solver.  Unfortunately, it has a hidden crashing bug (Google searching result on 12th Jul. 2012 implies that I'm the first one reporting this bug on Internet ;-).  Besides bug, it can be even cooler with following improvements.
 
