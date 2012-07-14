@@ -1,6 +1,6 @@
-# A Cooler Alphametic Solver - Thoughts On "Dive Into Python 3"
+# Cooler Alphametic Solver - A Humble Comment for "Dive Into Python 3"
 
-"Dive Into Python 3" is a fantastic book.  For instance, chapter 8 "Advanced Iterators" introduces a cool alphametic puzzle solver.  Unfortunately, it has a crashing bug (Google searching result on 12th Jul. 2012 implies that I'm the first one reporting this bug on Internet ;-).  And, it can be even cooler with following improvements.
+"Dive Into Python 3" is a fantastic book.  For instance, chapter 8 "Advanced Iterators" introduces a cool alphametic puzzle solver.  Unfortunately, it has a hidden crashing bug (Google searching result on 12th Jul. 2012 implies that I'm the first one reporting this bug on Internet ;-).  Besides bug, it can be even cooler with following improvements.
 
 ## Fixing Bug
 
@@ -41,7 +41,7 @@ Surprisingly, bottle neck actually is `eval()` that accounts for 60% time.  Mean
 
 It takes around 40 seconds to calculate "SEND + MORE == MONEY" on my computer.  That is long enough to make people suspect the code is running into dead loop.  Therefore a command line based animated progress is added.  Probably you want to try [my alphametic.py][0] on your terminal.  That progress animation is cool.
 
-On implementation side, this trick actually is simple.  Just insert `end='\r'` into `print()` (line 26 in [my revision][0]).  However, do not forget to overwrite the progress at the end of the function because `'\r'` only move cursor but delete nothing.
+On implementation side, this trick actually is simple if you are aware of the difference between carriage return "\r" and line feed "\n".  Just insert `end='\r'` into `print()` (line 26 in [my revision][0]).  However, do not forget to overwrite the progress at the end of the function because `'\r'` only move cursor but delete nothing.
 
 The cost for progress animation is performance.  It takes extra 20 seconds roughly for "SEND + MORE == MONEY" on my computer. But I believe that is worth in term of overall user experience (slower but more responsive).
 
@@ -49,7 +49,7 @@ The cost for progress animation is performance.  It takes extra 20 seconds rough
 
 Thanks powerful `eval()`.  This alphametic solver actually can support `-, *, /, **` in addition to `+`.  So, you can play with "MONEY - MORE == SEND", too.
 
-If you think about equation input (e.g. "MONEY - MORE == SEND") further, you might realize that essentially is an abstract pattern, which is not necessary in alphabets!  Equation "A * B == C" should be as same as equation "2 * 3 == 6", where both "A" and "2" represent same operand.  With a tiny change (line 13 in [my revision][0]), pattern in digits is supported easily.  Now, you are able to check whether there is any solution for pattern "11 * 11 == 121".
+If you think about input equation (e.g. "MONEY - MORE == SEND") further, you might realize that essentially is an abstract pattern, which is not necessary in alphabet!  Equation "A * B == B" should perform as same as equation "1 * 2 == 2" because "A" and "1" represent same dynamic operand.  With a tiny change (line 13 in [my revision][0]), pattern in digit is supported easily.  Now, you are able to check whether there is any solution for pattern "11 * 11 == 121".
 
 
 
